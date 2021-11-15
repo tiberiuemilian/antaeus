@@ -10,7 +10,7 @@ import org.jetbrains.exposed.sql.Table
 object InvoiceTable : Table() {
     val id = integer("id").autoIncrement().primaryKey()
     val currency = varchar("currency", 3)
-    val value = decimal("value", 1000, 2)
+    val value = decimal("value", 65, 2)
     val customerId = reference("customer_id", CustomerTable.id)
     val status = text("status")
 }
@@ -18,4 +18,13 @@ object InvoiceTable : Table() {
 object CustomerTable : Table() {
     val id = integer("id").autoIncrement().primaryKey()
     val currency = varchar("currency", 3)
+}
+
+object PaymentTable : Table() {
+    val id = integer("id").autoIncrement().primaryKey()
+    val invoiceId = reference("invoice_id", InvoiceTable.id)
+    val value = decimal("value", 65, 2)
+    val currency = varchar("currency", 3)
+    val date = date("date")
+    val status = text("status")
 }
