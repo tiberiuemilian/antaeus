@@ -6,6 +6,7 @@ import com.uchuhimo.konf.source.yaml
 
 object ServerConfig : ConfigSpec("server") {
     val port by required<Int>()
+    val databaseHost by optional("db")
 }
 
 object Configuration {

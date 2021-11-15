@@ -28,3 +28,4 @@ object PaymentTable : Table() {
     val date = date("date")
     val status = text("status")
 }
+

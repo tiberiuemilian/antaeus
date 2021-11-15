@@ -44,3 +44,4 @@ fun ResultRow.toPayment(): Payment = Payment(
     invoiceId = this[PaymentTable.invoiceId],
     status = InvoiceStatus.valueOf(this[PaymentTable.status])
 )
+

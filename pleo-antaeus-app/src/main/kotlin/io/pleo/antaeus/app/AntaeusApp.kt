@@ -1,13 +1,8 @@
-/*
-    Defines the main() entry point of the app.
-    Configures the database and sets up the REST web service.
- */
-
-@file:JvmName("AntaeusApp")
-
 package io.pleo.antaeus.app
 
 import getPaymentProvider
+import io.pleo.antaeus.core.config.Configuration
+import io.pleo.antaeus.core.config.ServerConfig
 import io.pleo.antaeus.core.services.BillingService
 import io.pleo.antaeus.core.services.CustomerService
 import io.pleo.antaeus.core.services.InvoiceService
@@ -27,8 +22,9 @@ fun main() {
     // The tables to create in the database.
     val tables = arrayOf(InvoiceTable, CustomerTable, PaymentTable)
 
-    // Connect to the database and create the needed tables. Drop any existing data.
-    val connectionURL = "jdbc:mysql://localhost:3307/antaeus?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true"
+    val databaseHost = Configuration.config[ServerConfig.databaseHost]
+    val connectionURL = "jdbc:mysql://$databaseHost:3306/antaeus?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true"
+
     val db = Database
         .connect(url = "${connectionURL}",
             driver = "com.mysql.cj.jdbc.Driver",

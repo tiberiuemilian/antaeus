@@ -1,0 +1,55 @@
+version: '3.1'
+
+services:
+
+  node1:
+    image: pleo-antaeus:latest
+    container_name: node1
+    volumes:
+    - node1-build-cache:/root/.gradle
+    ports:
+      - "7070:7070"
+    depends_on:
+      - "db"
+    links:
+      - "db"
+
+  node2:
+    image: pleo-antaeus:latest
+    container_name: node2
+    volumes:
+      - node2-build-cache:/root/.gradle
+    ports:
+      - "7080:7070"
+    depends_on:
+      - "db"
+    links:
+      - "db"
+
+  # Use root/root as user/password credentials
+  db:
+    image: mysql:8.0.27
+    container_name: mysql
+    volumes:
+      - container-volume:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: antaeus
+    ports:
+      - "3306:3306"
+
+  adminer:
+    image: adminer:4.8.1
+    container_name: mysql_admin
+    restart: always
+    depends_on:
+      - "db"
+    ports:
+      - "9090:8080"
+
+volumes:
+  node1-build-cache:
+  node2-build-cache:
+  container-volume:
