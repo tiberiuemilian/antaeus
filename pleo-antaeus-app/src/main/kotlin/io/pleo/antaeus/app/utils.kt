@@ -32,12 +32,6 @@ internal fun setupInitialData(customerDal: CustomerDal, invoiceDal: InvoiceDal) 
             invoice
         }
     }
-
-    val payments = invoices.mapNotNull { invoice ->
-        paymentDal.createPayment(
-            invoice = invoice
-        )
-    }
 }
 
 // This is the mocked instance of the payment provider
