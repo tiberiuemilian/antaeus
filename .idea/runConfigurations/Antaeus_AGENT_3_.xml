@@ -1,18 +1,14 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Antaeus[AGENT_3]" type="JetRunConfigurationType" factoryName="Kotlin" singleton="false">
-    <module name="pleo-antaeus-app_main" />
-    <option name="VM_PARAMETERS" value="-Dkotlinx.coroutines.debug" />
-    <option name="PROGRAM_PARAMETERS" value="" />
-    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-    <option name="ALTERNATIVE_JRE_PATH" />
-    <option name="PASS_PARENT_ENVS" value="true" />
-    <option name="MAIN_CLASS_NAME" value="io.pleo.antaeus.app.AntaeusAppKt" />
-    <option name="WORKING_DIRECTORY" value="" />
+  <configuration default="false" name="Antaeus[AGENT_3]" type="JetRunConfigurationType" singleton="false">
     <envs>
       <env name="agent.name" value="AGENT_3" />
       <env name="agent.port" value="7094" />
       <env name="agent.databaseHost" value="localhost" />
     </envs>
+    <option name="MAIN_CLASS_NAME" value="io.pleo.antaeus.app.AntaeusAppKt" />
+    <module name="antaeus.pleo-antaeus-app.main" />
+    <shortenClasspath name="NONE" />
+    <option name="VM_PARAMETERS" value="-Dkotlinx.coroutines.debug" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
