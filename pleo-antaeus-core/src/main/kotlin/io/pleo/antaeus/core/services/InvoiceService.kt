@@ -16,4 +16,12 @@ class InvoiceService(private val dal: InvoiceDal) {
     fun fetch(id: Int): Invoice {
         return dal.fetchInvoice(id) ?: throw InvoiceNotFoundException(id)
     }
+
+    fun nextInvoiceBatch(batchSize: Int): List<Invoice> {
+        return dal.nextInvoicesBatch(batchSize)
+    }
+
+    fun updateInvoice(invoice: Invoice): Invoice {
+        return dal.updateInvoice(invoice)
+    }
 }

@@ -12,6 +12,7 @@ application {
 }
 
 dependencies {
+    implementation(project(":pleo-antaeus-config"))
     implementation(project(":pleo-antaeus-data"))
     implementation(project(":pleo-antaeus-rest"))
     implementation(project(":pleo-antaeus-core"))

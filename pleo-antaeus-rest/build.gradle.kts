@@ -4,11 +4,8 @@ plugins {
 
 kotlinProject()
 
-repositories {
-    maven(url = "https://jitpack.io")
-}
-
 dependencies {
+    implementation(project(":pleo-antaeus-config"))
     implementation(project(":pleo-antaeus-core"))
     implementation(project(":pleo-antaeus-models"))
 

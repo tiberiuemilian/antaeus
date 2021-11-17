@@ -1,18 +1,24 @@
-package io.pleo.antaeus.core.config
+package config
 
 import com.uchuhimo.konf.Config
 import com.uchuhimo.konf.ConfigSpec
 import com.uchuhimo.konf.source.yaml
 
-object ServerConfig : ConfigSpec("server") {
+object AgentConfig : ConfigSpec("agent") {
     val port by required<Int>()
+    val agentName by required<String>("name")
+    val databaseHost by optional("db")
+}
+
+object AppConfig : ConfigSpec("app") {
+    val batchSize by required<Int>()
     val databaseHost by optional("db")
 }
 
 object Configuration {
     val config = Config {
-        addSpec(ServerConfig)
-//        addSpec(DomainConfig)
+        addSpec(AgentConfig)
+        addSpec(AppConfig)
     }
         .from.yaml.resource("config.yaml")
         .from.env()

@@ -4,15 +4,14 @@
 
 package io.pleo.antaeus.rest
 
+import config.AgentConfig
+import config.Configuration
 import io.javalin.Javalin
 import io.javalin.apibuilder.ApiBuilder.*
-import io.pleo.antaeus.core.config.Configuration.config
-import io.pleo.antaeus.core.config.ServerConfig
 import io.pleo.antaeus.core.exceptions.EntityNotFoundException
 import io.pleo.antaeus.core.services.BillingService
 import io.pleo.antaeus.core.services.CustomerService
 import io.pleo.antaeus.core.services.InvoiceService
-import io.pleo.antaeus.core.services.PaymentService
 import mu.KotlinLogging
 
 private val logger = KotlinLogging.logger {}
@@ -21,13 +20,12 @@ private val thisFile: () -> Unit = {}
 class AntaeusRest(
     private val invoiceService: InvoiceService,
     private val customerService: CustomerService,
-    private val paymentService: PaymentService,
     private val billingService: BillingService
 ) : Runnable {
 
     override fun run() {
         //port from configuration file
-        val port = config[ServerConfig.port]
+        val port = Configuration.config[AgentConfig.port]
         app.start(port)
     }
 
@@ -86,22 +84,10 @@ class AntaeusRest(
                         }
                     }
 
-                    path("payments") {
-                        // URL: /rest/v1/payments
-                        get {
-                            val status = it.queryParam("status")
-                            it.json(paymentService.fetchAll(status))
-                        }
-
-                        // URL: /rest/v1/payments/{:id}
-                        get("{id}") {
-                            it.json(paymentService.fetch(it.pathParamAsClass<Int>("id").get()))
-                        }
-                    }
 
                     path("billing") {
-                        post {
-                            billingService.chargeAll()
+                        put {
+                            it.json(billingService.chargeAll())
                         }
 
                         delete {

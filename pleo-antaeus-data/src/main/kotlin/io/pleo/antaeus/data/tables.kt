@@ -13,6 +13,7 @@ object InvoiceTable : Table() {
     val value = decimal("value", 65, 2)
     val customerId = reference("customer_id", CustomerTable.id)
     val status = text("status")
+    val processedBy = varchar("processed_by", 50).nullable()
 }
 
 object CustomerTable : Table() {

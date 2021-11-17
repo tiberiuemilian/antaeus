@@ -1,2 +1,7 @@
-server:
+agent:
   port: 7070
+  name: UNKNOWN
+
+app:
+  batchSize: 1000
+
