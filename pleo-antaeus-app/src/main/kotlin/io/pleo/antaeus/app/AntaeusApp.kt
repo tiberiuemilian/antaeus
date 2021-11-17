@@ -30,13 +30,13 @@ fun main() {
             password = "root")
         .also {
             TransactionManager.manager.defaultIsolationLevel = Connection.TRANSACTION_SERIALIZABLE
-            transaction(it) {
-                addLogger(StdOutSqlLogger)
-                // Drop all existing tables to ensure a clean slate on each run
-                SchemaUtils.drop(*tables)
-                // Create all tables
-                SchemaUtils.create(*tables)
-            }
+//            transaction(it) {
+//                addLogger(StdOutSqlLogger)
+//                // Drop all existing tables to ensure a clean slate on each run
+//                SchemaUtils.drop(*tables)
+//                // Create all tables
+//                SchemaUtils.create(*tables)
+//            }
         }
 
     // Set up data access layer.
