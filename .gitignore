@@ -1,8 +1,10 @@
 .gradle/
-.idea/
+.idea/*
 target/
 out/
 build/
 *.iml
 .DS_Store
 .envrc
+
+!.idea/runConfigurations/
