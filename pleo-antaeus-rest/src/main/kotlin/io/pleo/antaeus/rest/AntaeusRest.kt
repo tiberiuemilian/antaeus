@@ -86,17 +86,17 @@ class AntaeusRest(
 
 
                     path("billing") {
-                        put {
-                            it.json(billingService.chargeAll())
+                        post("charge") {
+                            billingService.chargeAll()
                         }
 
-                        delete {
-                            billingService.cancelCharging()
+                        post("cancel") {
+                            it.json(billingService.cancelCharging())
                         }
 
-                        get {
+                        get("progress") {
                             // progress
-                            billingService.getProgress()
+                            it.json(billingService.getProgress())
                         }
                     }
                 }

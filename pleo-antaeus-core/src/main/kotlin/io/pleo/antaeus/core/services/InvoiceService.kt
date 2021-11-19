@@ -21,7 +21,11 @@ class InvoiceService(private val dal: InvoiceDal) {
         return dal.nextInvoicesBatch(batchSize)
     }
 
-    fun updateInvoice(invoice: Invoice): Invoice {
-        return dal.updateInvoice(invoice)
+    fun update(invoice: Invoice): Invoice {
+        return dal.update(invoice)
+    }
+
+    fun getProgress():Int {
+        return dal.getProgress()
     }
 }

@@ -46,7 +46,7 @@ class InvoiceDal(private val db: Database) {
             val batchIdList: List<Int> = nextBatch.map { it.id }
 
             InvoiceTable.update ( { InvoiceTable.id inList batchIdList } ) {
-                it[status] = InvoiceStatus.IN_EXECUTION.name
+                it[status] = InvoiceStatus.IN_PROGRESS.name
                 it[processedBy] = agent
             }
 
@@ -55,13 +55,13 @@ class InvoiceDal(private val db: Database) {
 
     }
 
-    fun updateInvoice(invoice: Invoice): Invoice {
+    fun update(invoice: Invoice): Invoice {
         return transaction(db) {
             addLogger(StdOutSqlLogger)
             val id = InvoiceTable.update({ InvoiceTable.id eq invoice.id }) {
                 it[id] = invoice.id
                 it[customerId] = invoice.customerId
-                it[currency] = invoice.amount.currency.name // ? it's necessary .name
+                it[currency] = invoice.amount.currency.name
                 it[value] = invoice.amount.value
                 it[status] = invoice.status.name
             }
@@ -84,4 +84,18 @@ class InvoiceDal(private val db: Database) {
 
         return fetchInvoice(id)
     }
+
+    fun getProgress(): Int = transaction(db) {
+        val pending =
+            InvoiceTable
+                .select { InvoiceTable.status.eq(InvoiceStatus.PENDING.name) }
+                .count();
+
+        val total = InvoiceTable.selectAll().count();
+
+        val processed = total - pending
+
+        processed * 100 / total
+    }
+
 }
