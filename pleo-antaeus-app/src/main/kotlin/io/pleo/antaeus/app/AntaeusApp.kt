@@ -6,19 +6,18 @@ import getPaymentProvider
 import io.pleo.antaeus.core.services.BillingService
 import io.pleo.antaeus.core.services.CustomerService
 import io.pleo.antaeus.core.services.InvoiceService
-import io.pleo.antaeus.data.*
+import io.pleo.antaeus.data.CustomerDal
+import io.pleo.antaeus.data.CustomerTable
+import io.pleo.antaeus.data.InvoiceDal
+import io.pleo.antaeus.data.InvoiceTable
 import io.pleo.antaeus.rest.AntaeusRest
 import org.jetbrains.exposed.sql.Database
-import org.jetbrains.exposed.sql.SchemaUtils
-import org.jetbrains.exposed.sql.StdOutSqlLogger
-import org.jetbrains.exposed.sql.addLogger
 import org.jetbrains.exposed.sql.transactions.TransactionManager
-import org.jetbrains.exposed.sql.transactions.transaction
 import java.sql.Connection
 
 fun main() {
     // The tables to create in the database.
-    val tables = arrayOf(InvoiceTable, CustomerTable, PaymentTable)
+    val tables = arrayOf(InvoiceTable, CustomerTable)
 
     val databaseHost = Configuration.config[AgentConfig.databaseHost]
     val connectionURL = "jdbc:mysql://$databaseHost:3306/antaeus?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true"

@@ -21,12 +21,4 @@ object CustomerTable : Table() {
     val currency = varchar("currency", 3)
 }
 
-object PaymentTable : Table() {
-    val id = integer("id").autoIncrement().primaryKey()
-    val invoiceId = reference("invoice_id", InvoiceTable.id)
-    val value = decimal("value", 65, 2)
-    val currency = varchar("currency", 3)
-    val date = date("date")
-    val status = text("status")
-}
 
