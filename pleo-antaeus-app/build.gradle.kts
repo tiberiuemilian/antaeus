@@ -1,6 +1,7 @@
 plugins {
     application
     kotlin("jvm")
+    id("com.google.cloud.tools.jib") version "3.1.4"
 }
 
 kotlinProject()
@@ -18,4 +19,28 @@ dependencies {
     implementation(project(":pleo-antaeus-core"))
     implementation(project(":pleo-antaeus-models"))
     implementation("com.uchuhimo:konf:1.1.2")
+}
+
+jib {
+    to {
+        image = "antaeus"
+    }
+
+    container {
+        mainClass = "io.pleo.antaeus.app.AntaeusAppKt"
+        environment = mapOf(
+                        Pair("agent.name", "UNKNOWN"),
+                        Pair("agent.port", "7070"))
+
+        jvmFlags = listOf(
+            "-server",
+            "-Djava.awt.headless=true",
+            "-XX:InitialRAMFraction=2",
+            "-XX:MinRAMFraction=2",
+            "-XX:MaxRAMFraction=2",
+            "-XX:+UseG1GC",
+            "-XX:MaxGCPauseMillis=100",
+            "-XX:+UseStringDeduplication"
+        )
+    }
 }

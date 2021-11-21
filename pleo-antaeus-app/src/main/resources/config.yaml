@@ -3,5 +3,5 @@ agent:
   name: UNKNOWN
 
 app:
-  batchSize: 1000
+  batchSize: 200
 

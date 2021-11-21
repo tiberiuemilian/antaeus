@@ -58,7 +58,7 @@ class BillingService(
                 batchInvoices = invoiceService.nextInvoiceBatch(batchSize)
 
                 if (batchInvoices?.isNotEmpty() == true) {
-                    batchJob = coroutineScope { launch { processBatch() } }
+                    batchJob = GlobalScope.launch { processBatch() }
                 } else {
                     batchInvoices = null
                     batchJob = null
