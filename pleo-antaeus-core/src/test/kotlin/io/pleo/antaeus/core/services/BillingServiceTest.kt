@@ -15,9 +15,9 @@ import io.pleo.antaeus.models.Invoice
 import io.pleo.antaeus.models.InvoiceStatus
 import io.pleo.antaeus.models.Money
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
@@ -79,12 +79,12 @@ internal class BillingServiceTest {
     }
 
     @Test
-    fun `chargeAll launch charging processBatch if it does not run`() = runBlockingTest {
+    fun `chargeAll launch charging processBatch if it does not run`() = runBlocking {
         every { invoiceService.nextInvoiceBatch(any()) } returns listOf()
         coEvery { billingService.processBatch() } returns Unit
-        launch { billingService.chargeAll() }
+        billingService.chargeAll()
         verify(exactly = 1) { invoiceService.nextInvoiceBatch(any()) }
-        coVerify(exactly = 1) { billingService.processBatch() }
+        coVerify (exactly = 1) { billingService.processBatch() }
     }
 
     @Test
