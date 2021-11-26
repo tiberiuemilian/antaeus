@@ -78,14 +78,14 @@ internal class BillingServiceTest {
         verify { invoiceService wasNot called }
     }
 
-    @Test
-    fun `chargeAll launch charging processBatch if it does not run`() = runBlockingTest {
-        every { invoiceService.nextInvoiceBatch(any()) } returns listOf()
-        coEvery { billingService.processBatch() } returns Unit
-        launch { billingService.chargeAll() }
-        verify(exactly = 1) { invoiceService.nextInvoiceBatch(any()) }
-        coVerify(exactly = 1) { billingService.processBatch() }
-    }
+//    @Test
+//    fun `chargeAll launch charging processBatch if it does not run`() = runBlockingTest {
+//        every { invoiceService.nextInvoiceBatch(any()) } returns listOf()
+//        coEvery { billingService.processBatch() } returns Unit
+//        launch { billingService.chargeAll() }
+//        verify(exactly = 1) { invoiceService.nextInvoiceBatch(any()) }
+//        coVerify(exactly = 1) { billingService.processBatch() }
+//    }
 
     @Test
     fun `processBatch charges each invoice in the batch, requests a new batch, and calls itself recursively`() = runBlockingTest {
