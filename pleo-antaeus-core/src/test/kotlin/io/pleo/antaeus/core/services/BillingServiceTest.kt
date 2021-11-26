@@ -79,10 +79,10 @@ internal class BillingServiceTest {
     }
 
     @Test
-    fun `chargeAll launch charging processBatch if it does not run`() {
+    fun `chargeAll launch charging processBatch if it does not run`() = runBlockingTest {
         every { invoiceService.nextInvoiceBatch(any()) } returns listOf()
         coEvery { billingService.processBatch() } returns Unit
-        billingService.chargeAll()
+        launch { billingService.chargeAll() }
         verify(exactly = 1) { invoiceService.nextInvoiceBatch(any()) }
         coVerify(exactly = 1) { billingService.processBatch() }
     }
