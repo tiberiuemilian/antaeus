@@ -79,10 +79,11 @@ internal class BillingServiceTest {
     }
 
     @Test
-    fun `chargeAll launch charging processBatch if it does not run`() = runBlocking {
+    fun `chargeAll launch charging processBatch if it does not run`() = runBlockingTest {
         every { invoiceService.nextInvoiceBatch(any()) } returns listOf()
         coEvery { billingService.processBatch() } returns Unit
         billingService.chargeAll()
+        BillingService.batchJob?.join() // Wait for the batchJob to complete. Otherwise, we will have intermittent failures.
         verify(exactly = 1) { invoiceService.nextInvoiceBatch(any()) }
         coVerify (exactly = 1) { billingService.processBatch() }
     }
