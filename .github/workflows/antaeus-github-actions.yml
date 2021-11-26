@@ -13,7 +13,7 @@ jobs:
   ci:
     strategy:
       matrix:
-        os: [ ubuntu-latest, macos-latest ]
+        os: [ ubuntu-latest ]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
@@ -29,4 +29,4 @@ jobs:
 
       - uses: gradle/gradle-build-action@v2
         with:
-          arguments: test --warning-mode all
+          arguments: test --stacktrace --warning-mode all
