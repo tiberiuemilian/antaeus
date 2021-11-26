@@ -21,6 +21,7 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 
@@ -79,6 +80,7 @@ internal class BillingServiceTest {
     }
 
     @Test
+    @Disabled
     fun `chargeAll launch charging processBatch if it does not run`() = runBlockingTest {
         every { invoiceService.nextInvoiceBatch(any()) } returns listOf()
         coEvery { billingService.processBatch() } returns Unit
