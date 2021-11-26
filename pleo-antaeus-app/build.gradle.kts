@@ -19,6 +19,7 @@ dependencies {
     implementation(project(":pleo-antaeus-core"))
     implementation(project(":pleo-antaeus-models"))
     implementation("com.uchuhimo:konf:1.1.2")
+    implementation(platform("org.jetbrains.kotlin:kotlin-reflect:1.5.31"))
 }
 
 jib {

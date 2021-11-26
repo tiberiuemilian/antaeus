@@ -22,7 +22,8 @@ jobs:
           java-version: 11
       - uses: gradle/gradle-build-action@v2
         with:
-          arguments: build
+          arguments: build --warning-mode all
+
       - uses: gradle/gradle-build-action@v2
         with:
-          arguments: test
+          arguments: test --warning-mode all

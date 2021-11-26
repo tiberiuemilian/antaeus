@@ -24,7 +24,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 
-@ExperimentalCoroutinesApi // declare as indicated the experimental usage of coroutines features
+@ExperimentalCoroutinesApi //
 @ExtendWith(MockKExtension::class)
 internal class BillingServiceTest {
     private val batchSize = 10

@@ -35,8 +35,9 @@ internal class InvoiceDalTest {
     private val agent = "Agent1"
 
     @Test
-    fun `progress value is calculated OK as %`() {
-        val firstInvoice = invoiceDal.createInvoice(
+    fun `progress value is calculated OK as percent`() {
+        // first invoice
+        invoiceDal.createInvoice(
             amount = Money(
                 value = BigDecimal(Random.nextDouble(10.0, 500.0)),
                 currency = customer1.currency
@@ -45,7 +46,8 @@ internal class InvoiceDalTest {
             status = InvoiceStatus.PENDING
         )
 
-        val secondInvoice = invoiceDal.createInvoice(
+        // second invoice
+        invoiceDal.createInvoice(
             amount = Money(
                 value = BigDecimal(Random.nextDouble(10.0, 500.0)),
                 currency = customer1.currency
@@ -93,7 +95,7 @@ internal class InvoiceDalTest {
     }
 
     @Test
-    fun `nextInvoicesBatch selects next "batchSize" X invoices with status Pending`() {
+    fun `nextInvoicesBatch selects next batchSize invoices with status Pending`() {
         val pendingInvoices: MutableList<Invoice> = mutableListOf()
 
         (1..30).forEach {
