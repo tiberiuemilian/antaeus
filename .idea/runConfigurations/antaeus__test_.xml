@@ -1,10 +1,10 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="antaeus:pleo-antaeus-app [build]" type="GradleRunConfiguration" factoryName="Gradle">
+  <configuration default="false" name="antaeus [test]" type="GradleRunConfiguration" factoryName="Gradle">
     <ExternalSystemSettings>
       <option name="executionName" />
-      <option name="externalProjectPath" value="$PROJECT_DIR$/pleo-antaeus-app" />
+      <option name="externalProjectPath" value="$PROJECT_DIR$" />
       <option name="externalSystemIdString" value="GRADLE" />
-      <option name="scriptParameters" value="build" />
+      <option name="scriptParameters" value="test" />
       <option name="taskDescriptions">
         <list />
       </option>
