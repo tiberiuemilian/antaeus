@@ -28,7 +28,7 @@ class BillingService(
         const val RETRY_WAITING_TIME = 3_000L
     }
 
-    fun chargeAll() = runBlocking {
+    fun chargeAll(dispatcher: CoroutineDispatcher = Dispatchers.Default) = runBlocking {
         logger.info { "Charge all PENDING invoices." }
 
         mutex.withLock {
@@ -36,7 +36,7 @@ class BillingService(
 
             batchInvoices = invoiceService.nextInvoiceBatch(batchSize)
             isRunning = true
-            batchJob = GlobalScope.launch { processBatch() }
+            batchJob = GlobalScope.launch(dispatcher) { processBatch() }
         }
     }
 

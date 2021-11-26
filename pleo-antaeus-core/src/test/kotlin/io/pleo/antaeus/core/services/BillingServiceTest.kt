@@ -14,14 +14,13 @@ import io.pleo.antaeus.models.Currency
 import io.pleo.antaeus.models.Invoice
 import io.pleo.antaeus.models.InvoiceStatus
 import io.pleo.antaeus.models.Money
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 
@@ -83,9 +82,12 @@ internal class BillingServiceTest {
     fun `chargeAll launch charging processBatch if it does not run`() = runBlockingTest {
         every { invoiceService.nextInvoiceBatch(any()) } returns listOf()
         coEvery { billingService.processBatch() } returns Unit
-        billingService.chargeAll()
+
+        // run processBatch from GlobalScope.launch(dispatcher) { processBatch() } in the same thread -> dispatcher = Dispatchers.Unconfined
+        // This way we'll avoid to wait for the batchJob to complete. Otherwise, we will have intermittent failures.
+        billingService.chargeAll(dispatcher = Dispatchers.Unconfined)
         verify(exactly = 1) { invoiceService.nextInvoiceBatch(any()) }
-        coVerify (exactly = 1, timeout = 1000) { billingService.processBatch() } // Wait for the batchJob to complete. Otherwise, we will have intermittent failures.
+        coVerify (exactly = 1) { billingService.processBatch() }
     }
 
     @Test
