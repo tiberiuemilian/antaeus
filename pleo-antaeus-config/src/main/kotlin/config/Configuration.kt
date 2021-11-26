@@ -8,11 +8,12 @@ object AgentConfig : ConfigSpec("agent") {
     val port by required<Int>()
     val agentName by required<String>("name")
     val databaseHost by optional("db")
+    val databasePoolSize by optional(10)
 }
 
 object AppConfig : ConfigSpec("app") {
     val batchSize by required<Int>()
-    val databaseHost by optional("db")
+    val delayBetweenBatches by optional(0L)
 }
 
 object Configuration {

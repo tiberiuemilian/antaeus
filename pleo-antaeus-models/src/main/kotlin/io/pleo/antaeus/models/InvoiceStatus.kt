@@ -3,14 +3,13 @@ package io.pleo.antaeus.models
 enum class InvoiceStatus {
     PENDING,
     IN_PROGRESS,
-    CANCELLED,
     ERR_UNAVAILABLE_FUNDS,
     ERR_CUSTOMER_NOT_FOUND,
     ERR_CURRENCY_MISMATCH,
     ERR_NETWORK,
     ERR_UNKNOWN,
     PAID,
-    PAID_OR_CANCELLED;
+    TO_BE_CHECKED; // is PAID or ERR - we couldn't register processing state
 
     fun inErrors(): Boolean {
         return arrayOf(

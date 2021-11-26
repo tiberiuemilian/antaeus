@@ -1,5 +1,7 @@
 package io.pleo.antaeus.app
 
+import com.zaxxer.hikari.HikariConfig
+import com.zaxxer.hikari.HikariDataSource
 import config.AgentConfig
 import config.Configuration
 import getPaymentProvider
@@ -20,13 +22,20 @@ fun main() {
     val tables = arrayOf(InvoiceTable, CustomerTable)
 
     val databaseHost = Configuration.config[AgentConfig.databaseHost]
+    val databasePoolSize = Configuration.config[AgentConfig.databasePoolSize]
     val connectionURL = "jdbc:mysql://$databaseHost:3306/antaeus?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true"
 
+    val config = HikariConfig().apply {
+        jdbcUrl         = connectionURL
+        driverClassName = "com.mysql.cj.jdbc.Driver"
+        username        = "root"
+        password        = "root"
+        maximumPoolSize = 10
+    }
+    val dataSource = HikariDataSource(config)
+
     val db = Database
-        .connect(url = "${connectionURL}",
-            driver = "com.mysql.cj.jdbc.Driver",
-            user = "root",
-            password = "root")
+        .connect(dataSource)
         .also {
             TransactionManager.manager.defaultIsolationLevel = Connection.TRANSACTION_SERIALIZABLE
 //            transaction(it) {
@@ -40,7 +49,7 @@ fun main() {
 
     // Set up data access layer.
     val customerDal = CustomerDal(db = db)
-    val invoiceDal = InvoiceDal(db = db)
+    val invoiceDal = InvoiceDal(db = db, agent = Configuration.config[AgentConfig.agentName])
 
     // Insert example data in the database.
 //    setupInitialData(

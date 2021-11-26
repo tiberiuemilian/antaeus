@@ -1,7 +1,5 @@
 package io.pleo.antaeus.data
 
-import config.AgentConfig
-import config.Configuration
 import io.pleo.antaeus.models.Customer
 import io.pleo.antaeus.models.Invoice
 import io.pleo.antaeus.models.InvoiceStatus
@@ -9,10 +7,7 @@ import io.pleo.antaeus.models.Money
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 
-class InvoiceDal(private val db: Database) {
-    companion object {
-        private val agent = Configuration.config[AgentConfig.agentName]
-    }
+class InvoiceDal(private val db: Database, private val agent: String) {
 
     fun fetchInvoice(id: Int): Invoice? {
         // transaction(db) runs the internal query as a new database transaction.
@@ -58,7 +53,7 @@ class InvoiceDal(private val db: Database) {
     fun update(invoice: Invoice): Invoice {
         return transaction(db) {
             addLogger(StdOutSqlLogger)
-            val id = InvoiceTable.update({ InvoiceTable.id eq invoice.id }) {
+            InvoiceTable.update({ InvoiceTable.id eq invoice.id }) {
                 it[id] = invoice.id
                 it[customerId] = invoice.customerId
                 it[currency] = invoice.amount.currency.name

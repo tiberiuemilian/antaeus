@@ -7,7 +7,7 @@ import io.pleo.antaeus.data.CustomerDal
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
-class CustomerServiceTest {
+internal class CustomerServiceTest {
     private val dal = mockk<CustomerDal> {
         every { fetchCustomer(404) } returns null
     }
@@ -16,8 +16,8 @@ class CustomerServiceTest {
 
     @Test
     fun `will throw if customer is not found`() {
-//        assertThrows<CustomerNotFoundException> {
-//            customerService.fetch(404)
-//        }
+        assertThrows<CustomerNotFoundException> {
+            customerService.fetch(404)
+        }
     }
 }

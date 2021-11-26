@@ -2,7 +2,10 @@ package io.pleo.antaeus.data
 
 import io.pleo.antaeus.models.Currency
 import io.pleo.antaeus.models.Customer
-import org.jetbrains.exposed.sql.*
+import org.jetbrains.exposed.sql.Database
+import org.jetbrains.exposed.sql.insert
+import org.jetbrains.exposed.sql.select
+import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
 
 class CustomerDal(private val db: Database) {

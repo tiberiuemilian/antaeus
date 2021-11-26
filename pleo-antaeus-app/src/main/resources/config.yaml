@@ -4,4 +4,4 @@ agent:
 
 app:
   batchSize: 200
-
+  delayBetweenBatches: 0

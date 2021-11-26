@@ -16,8 +16,8 @@ class InvoiceServiceTest {
 
     @Test
     fun `will throw if invoice is not found`() {
-//        assertThrows<InvoiceNotFoundException> {
-//            invoiceService.fetch(404)
-//        }
+        assertThrows<InvoiceNotFoundException> {
+            invoiceService.fetch(404)
+        }
     }
 }
