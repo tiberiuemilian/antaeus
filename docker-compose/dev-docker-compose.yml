@@ -1,0 +1,75 @@
+version: '3.1'
+
+services:
+
+  node1:
+    image: antaeus:latest
+    container_name: agent1
+    environment:
+      agent.name: AGENT_1
+      agent.port: 7072
+    ports:
+      - "7072:7072"
+    depends_on:
+      - db
+    links:
+      - db
+
+  node2:
+    image: antaeus:latest
+    container_name: agent2
+    environment:
+      agent.name: AGENT_2
+      agent.port: 7073
+    ports:
+      - "7073:7073"
+    depends_on:
+      - db
+    links:
+      - db
+
+  # Use admin/admin as user/password credentials for basic HTTP authentication
+  scheduler:
+    image: alseambusher/crontab-ui:0.3.15
+    container_name: scheduler
+    volumes:
+      - ./crontabs:/crontab-ui/crontabs
+    environment:
+      BASIC_AUTH_USER: admin
+      BASIC_AUTH_PWD: admin
+    ports:
+      - "8082:8000"
+    depends_on:
+      - node1
+      - node2
+    links:
+      - node1
+      - node2
+
+  # Use root/root as user/password credentials
+  db:
+    image: mysql:8.0.27
+    container_name: mysql
+    volumes:
+      - mysql-volume:/var/lib/mysql
+      - ./mysql/mysql-dump:/docker-entrypoint-initdb.d
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: antaeus
+    ports:
+      - "3306:3306"
+
+  # Use root/root as user/password credentials
+  adminer:
+    image: adminer:4.8.1
+    container_name: mysql_admin
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "9090:8080"
+
+volumes:
+  mysql-volume:
