@@ -3,7 +3,7 @@ version: '3.1'
 services:
 
   node1:
-    image: antaeus:latest
+    image: ghcr.io/tiberiuemilian/antaeus:latest
     container_name: agent1
     environment:
       agent.name: AGENT_1
@@ -16,7 +16,7 @@ services:
       - db
 
   node2:
-    image: antaeus:latest
+    image: ghcr.io/tiberiuemilian/antaeus:latest
     container_name: agent2
     environment:
       agent.name: AGENT_2
