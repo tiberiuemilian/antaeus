@@ -24,7 +24,8 @@ dependencies {
 
 jib {
     to {
-        image = "antaeus"
+        val imageName = System.getenv("IMAGE_NAME")
+        image = imageName ?: "antaeus"
     }
 
     container {
