@@ -12,6 +12,8 @@ fun Project.kotlinProject() {
     dependencies {
         // Kotlin libs
         "implementation"(kotlin("stdlib"))
+        "implementation"(kotlin("stdlib-jdk7"))
+        "implementation"(kotlin("stdlib-jdk8"))
         "implementation"(kotlin("reflect"))
 
         // Logging
