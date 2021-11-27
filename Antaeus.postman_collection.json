@@ -1,0 +1,794 @@
+{
+	"info": {
+		"_postman_id": "57736466-6efd-4020-bd06-000210b01503",
+		"name": "Antaeus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Local[7092]",
+			"item": [
+				{
+					"name": "[7092] Run - billing",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7092/rest/v1/billing/charge",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7092",
+							"path": [
+								"rest",
+								"v1",
+								"billing",
+								"charge"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7092] Cancel - billing",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7092/rest/v1/billing/cancel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7092",
+							"path": [
+								"rest",
+								"v1",
+								"billing",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7092] Progress- billing",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7092/rest/v1/billing/progress",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7092",
+							"path": [
+								"rest",
+								"v1",
+								"billing",
+								"progress"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7092] All - Customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7092/rest/v1/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7092",
+							"path": [
+								"rest",
+								"v1",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7092]CustomerById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7092/rest/v1/customers/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7092",
+							"path": [
+								"rest",
+								"v1",
+								"customers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7092]AllInvoices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7092/rest/v1/invoices",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7092",
+							"path": [
+								"rest",
+								"v1",
+								"invoices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7092]InvoiceById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7092/rest/v1/invoices/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7092",
+							"path": [
+								"rest",
+								"v1",
+								"invoices",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Local[7093]",
+			"item": [
+				{
+					"name": "[7093] Run - billing",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7093/rest/v1/billing/charge",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7093",
+							"path": [
+								"rest",
+								"v1",
+								"billing",
+								"charge"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7093] Cancel - billing",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7093/rest/v1/billing/cancel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7093",
+							"path": [
+								"rest",
+								"v1",
+								"billing",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7093] Progress- billing",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7093/rest/v1/billing/progress",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7093",
+							"path": [
+								"rest",
+								"v1",
+								"billing",
+								"progress"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7093] All - Customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7093/rest/v1/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7093",
+							"path": [
+								"rest",
+								"v1",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7093]CustomerById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7093/rest/v1/customers/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7093",
+							"path": [
+								"rest",
+								"v1",
+								"customers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7093]AllInvoices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7093/rest/v1/invoices",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7093",
+							"path": [
+								"rest",
+								"v1",
+								"invoices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7093]InvoiceById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7093/rest/v1/invoices/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7093",
+							"path": [
+								"rest",
+								"v1",
+								"invoices",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Local[7094]",
+			"item": [
+				{
+					"name": "[7094] Run - billing",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7094/rest/v1/billing/charge",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7094",
+							"path": [
+								"rest",
+								"v1",
+								"billing",
+								"charge"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7094] Cancel - billing",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7094/rest/v1/billing/cancel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7094",
+							"path": [
+								"rest",
+								"v1",
+								"billing",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7094] Progress- billing",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7094/rest/v1/billing/progress",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7094",
+							"path": [
+								"rest",
+								"v1",
+								"billing",
+								"progress"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7094] All - Customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7094/rest/v1/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7094",
+							"path": [
+								"rest",
+								"v1",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7094]CustomerById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7094/rest/v1/customers/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7094",
+							"path": [
+								"rest",
+								"v1",
+								"customers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7094]AllInvoices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7094/rest/v1/invoices",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7094",
+							"path": [
+								"rest",
+								"v1",
+								"invoices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7094]InvoiceById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7094/rest/v1/invoices/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7094",
+							"path": [
+								"rest",
+								"v1",
+								"invoices",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Docker[7072]",
+			"item": [
+				{
+					"name": "[7072] Run - billing",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7072/rest/v1/billing/charge",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7072",
+							"path": [
+								"rest",
+								"v1",
+								"billing",
+								"charge"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7072] Cancel - billing",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7072/rest/v1/billing/cancel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7072",
+							"path": [
+								"rest",
+								"v1",
+								"billing",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7072] Progress- billing",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7072/rest/v1/billing/progress",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7072",
+							"path": [
+								"rest",
+								"v1",
+								"billing",
+								"progress"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7072] All - Customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7072/rest/v1/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7072",
+							"path": [
+								"rest",
+								"v1",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7072]CustomerById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7072/rest/v1/customers/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7072",
+							"path": [
+								"rest",
+								"v1",
+								"customers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7072]AllInvoices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7072/rest/v1/invoices",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7072",
+							"path": [
+								"rest",
+								"v1",
+								"invoices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7072]InvoiceById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7072/rest/v1/invoices/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7072",
+							"path": [
+								"rest",
+								"v1",
+								"invoices",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Docker[7073]",
+			"item": [
+				{
+					"name": "[7073] Run - billing",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7073/rest/v1/billing/charge",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7073",
+							"path": [
+								"rest",
+								"v1",
+								"billing",
+								"charge"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7073] Cancel - billing",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7073/rest/v1/billing/cancel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7073",
+							"path": [
+								"rest",
+								"v1",
+								"billing",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7073] Progress- billing",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7073/rest/v1/billing/progress",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7073",
+							"path": [
+								"rest",
+								"v1",
+								"billing",
+								"progress"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7073] All - Customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7073/rest/v1/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7073",
+							"path": [
+								"rest",
+								"v1",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7073]CustomerById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7073/rest/v1/customers/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7073",
+							"path": [
+								"rest",
+								"v1",
+								"customers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7073]AllInvoices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7073/rest/v1/invoices",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7073",
+							"path": [
+								"rest",
+								"v1",
+								"invoices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[7073]InvoiceById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7073/rest/v1/invoices/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7073",
+							"path": [
+								"rest",
+								"v1",
+								"invoices",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
