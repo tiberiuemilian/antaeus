@@ -31,7 +31,7 @@ fun main() {
         username        = "root"
         password        = "root"
         maximumPoolSize = databasePoolSize
-        connectionTimeout = 300000
+        initializationFailTimeout = 300000
     }
     val dataSource = HikariDataSource(config)
 
