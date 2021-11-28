@@ -38,7 +38,7 @@ fun main() {
     val db = Database
         .connect(dataSource)
         .also {
-            TransactionManager.manager.defaultIsolationLevel = Connection.TRANSACTION_SERIALIZABLE
+            TransactionManager.manager.defaultIsolationLevel = Connection.TRANSACTION_REPEATABLE_READ
 //            transaction(it) {
 //                addLogger(StdOutSqlLogger)
 //                // Drop all existing tables to ensure a clean slate on each run
