@@ -1,2 +1,2 @@
 ## Solution Architecture
-![Architecture](/readme/architecture.svg)
+![Architecture](/readme/architecture.png)
