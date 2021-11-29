@@ -1,0 +1,17 @@
+1.  Show Docker Desktop -> Containers/Apps -> no application
+2.  Create and start containers for antaeus
+        docker-compose -f ./github-docker-compose.yml up
+3.  Wait all components to start and show them in Docker Desktop -> Containers/Apps
+4.  Show connection details for MySQL "adminer" in IntelliJ Idea. Connect to it.
+5.  Show connection details "scheduler"(crontab-ui) in IntelliJ Idea. Connect to it.
+6.  Start job on Agent 1
+5.  Start job on Agent 2
+7.  Run REST call in Postman to see the processing progress
+8.  Cancel job on Agent 1
+9.  Progress still updates
+10. Cancel job on Agent 2
+11. Progress doesn't update anymore
+12. Restart job on Agent 1
+13. Progress updates
+14. Stop docker composer
+        docker-compose -f ./github-docker-compose.yml stop
