@@ -11,12 +11,12 @@ As most "Software as a Service" (SaaS) companies, Pleo needs to charge a subscri
 [![Watch the video](./readme/Thumbnail.PNG)](https://www.youtube.com/watch?v=7NL8EPTBYuA?autoplay=1)
 
 ## Wiki content:
-- ### [Challenge details](/readme/original-readme.md)
-- ### [Choose the right hammer](/readme/the-right-hammer.md)
-- ### [Solution architecture](/readme/architecture.md)
-- ### [Tests](/readme/tests.md)
-- ### [CI with GitHub Actions & GitHub containers registry](/readme/ci-github.md)
-- ### [Performance considerations](/readme/performance-considerations.md)
-- ### [Database backup & restore](/readme/db-dump.md)
-- ### [Cron UI - initial configuration](/readme/cron-ui-config.md)
+- #### [Challenge details](/readme/original-readme.md)
+- #### [Choose the right hammer](/readme/the-right-hammer.md)
+- #### [Solution architecture](/readme/architecture.md)
+- #### [Tests](/readme/tests.md)
+- #### [CI with GitHub Actions & GitHub containers registry](/readme/ci-github.md)
+- #### [Performance considerations](/readme/performance-considerations.md)
+- #### [Database backup & restore](/readme/db-dump.md)
+- #### [Cron UI - initial configuration](/readme/cron-ui-config.md)
 
