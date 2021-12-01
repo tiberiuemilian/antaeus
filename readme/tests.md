@@ -22,7 +22,7 @@ I have created both H2 and MySQL IntelliJ IDEA, shared running configurations th
 
 ### Tests for the *BillingService*
 
-* BillingService.class * contains logic for multi-threaded execution logic for agents.
+*BillingService.class* contains logic for multi-threaded execution logic for agents.
   The library "org.jetbrains.kotlinx: kotlinx-coroutines-test: 1.5.2" helped me to easily test multithreaded
 functionality with very little granularity. It was much easier than with Java 8-specific multithreading classes.
 
