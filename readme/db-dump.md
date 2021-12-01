@@ -6,7 +6,7 @@ restore functionality for the MySQL container:
 
 You can run the following ackup & restore commands inside "antaeus/mysql/scripts" folder.
 
-#### Backup
+### Backup
 
 ![DB backup](/readme/db-backup.PNG "DB backup")
 
@@ -14,7 +14,7 @@ You can run the following ackup & restore commands inside "antaeus/mysql/scripts
 source ./backup-antaeus-data-from-docker-compose-mysql-container.sh
 ```
 
-#### Restore
+### Restore
 
 ![DB restore](/readme/db-restore.PNG "DB restore")
 
