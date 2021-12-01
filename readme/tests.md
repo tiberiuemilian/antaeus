@@ -1,3 +1,5 @@
+## Tests
+
 From the JUnit and integration tests added to the project, I think the following deserves special attention:
 
 ### Tests for the DALs (Data Access Layer classes)

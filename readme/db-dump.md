@@ -1,3 +1,5 @@
+## Database backup & restore
+
 The first time you run the MySQL database container, it loads a backup sql file (dump): antaeus-dump.sql
 This backup was generated using a pair of 2 bash utility scripts added to the project that can provide backup and 
 restore functionality for the MySQL container:

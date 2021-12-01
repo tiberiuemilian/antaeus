@@ -1,3 +1,5 @@
+## CI with GitHub Actions & GitHub containers registry
+
 For CI (continuous integration) I configured GitHub Actions.
 
 You can find the configuration in the following folder:
